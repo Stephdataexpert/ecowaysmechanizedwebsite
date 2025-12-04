@@ -3,109 +3,84 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Ecoways Mechanized - Durable, vibrant, and eco-friendly industrial finishes. Repurposing machinery, refurbishing metalwork, and industrial coating.">
-    <meta name="keywords" content="Ecoways, Industrial, Powder Coating, Refurbishing, Eco-friendly">
-    <meta name="author" content="Ecoways Mechanized">
-    <link rel="icon" href="https://via.placeholder.com/32" type="image/png">
-    <link rel="stylesheet" href="style.css">
+    <meta name="description" content="Ecoways Mechanized specializes in repurposing, refurbishing, and coating machinery, curios, metalwork, and industrial items.">
     <title>Ecoways Mechanized</title>
+    <link rel="stylesheet" href="ecoways.css">
+    <link rel="icon" href="favicon.ico">
 </head>
 <body>
     <!-- Header / Navbar -->
     <header>
-        <div class="container header-container">
+        <nav>
             <div class="logo">Ecoways Mechanized</div>
-            <nav>
-                <ul>
-                    <li><a href="#home">Home</a></li>
-                    <li><a href="#about">About</a></li>
-                    <li><a href="#services">Services</a></li>
-                    <li><a href="#projects">Projects</a></li>
-                    <li><a href="#contact">Contact</a></li>
-                </ul>
-            </nav>
-        </div>
+            <ul class="nav-links">
+                <li><a href="#about">About</a></li>
+                <li><a href="#services">Services</a></li>
+                <li><a href="#projects">Projects</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
     </header>
 
     <!-- Hero Section -->
-    <section id="home" class="hero">
-        <div class="hero-content">
+    <section id="hero">
+        <div class="hero-text">
             <h1>Durable, Vibrant, and Eco-Friendly Finishes</h1>
-            <p>Precision workmanship for industrial excellence.</p>
+            <p>Repurposing, refurbishing, and coating machinery and metalwork to last.</p>
         </div>
     </section>
 
     <!-- About Section -->
-    <section id="about" class="about">
-        <div class="container">
-            <h2>About Ecoways Mechanized</h2>
-            <p>Ecoways Mechanized specializes in repurposing, refurbishing, and coating machinery, curios, metalwork, and industrial items. We deliver durable, vibrant, and eco-friendly finishes through advanced powder-coating technology and high-quality workmanship.</p>
-        </div>
+    <section id="about">
+        <h2>About Us</h2>
+        <p>Ecoways Mechanized specializes in repurposing, refurbishing, and coating machinery, curios, metalwork, and industrial items. Our team ensures every item is restored, strengthened, and built to last.</p>
     </section>
 
     <!-- Services Section -->
-    <section id="services" class="services">
-        <div class="container">
-            <h2>Our Services</h2>
-            <div class="service-grid">
-                <div class="service-card">
-                    <img src="https://via.placeholder.com/300x200" alt="Repurposing Machinery">
-                    <h3>Repurposing Machinery</h3>
-                    <p>We give old machinery a new life with precision refurbishment and upgrades.</p>
-                </div>
-                <div class="service-card">
-                    <img src="https://via.placeholder.com/300x200" alt="Refurbishing Curios & Metalwork">
-                    <h3>Refurbishing Curios & Metalwork</h3>
-                    <p>Restoring and enhancing metalwork and curios with quality finishes.</p>
-                </div>
-                <div class="service-card">
-                    <img src="https://via.placeholder.com/300x200" alt="Industrial Coating & Fabrication">
-                    <h3>Industrial Coating & Fabrication</h3>
-                    <p>Eco-friendly powder coating and fabrication for durability and aesthetics.</p>
-                </div>
+    <section id="services">
+        <h2>Our Services</h2>
+        <div class="services-grid">
+            <div class="service-card">
+                <h3>Repurposing Machinery</h3>
+                <p>Giving industrial machines a new life with precision and care.</p>
+            </div>
+            <div class="service-card">
+                <h3>Refurbishing Curios & Metalwork</h3>
+                <p>Restoring decorative and industrial metal items to perfection.</p>
+            </div>
+            <div class="service-card">
+                <h3>Industrial Coating & Fabrication</h3>
+                <p>Durable, eco-friendly powder coating and fabrication solutions.</p>
             </div>
         </div>
     </section>
 
-    <!-- Projects Section -->
-    <section id="projects" class="projects">
-        <div class="container">
-            <h2>Our Projects</h2>
-            <div class="project-grid">
-                <img src="https://via.placeholder.com/300x200" alt="Project 1">
-                <img src="https://via.placeholder.com/300x200" alt="Project 2">
-                <img src="https://via.placeholder.com/300x200" alt="Project 3">
-                <img src="https://via.placeholder.com/300x200" alt="Project 4">
-            </div>
+    <!-- Projects / Portfolio Section -->
+    <section id="projects">
+        <h2>Our Projects</h2>
+        <div class="projects-grid">
+            <img src="https://via.placeholder.com/300x200" alt="Project 1">
+            <img src="https://via.placeholder.com/300x200" alt="Project 2">
+            <img src="https://via.placeholder.com/300x200" alt="Project 3">
         </div>
     </section>
 
     <!-- Contact Section -->
-    <section id="contact" class="contact">
-        <div class="container">
-            <h2>Contact Us</h2>
-            <form id="contactForm">
-                <input type="text" name="name" placeholder="Your Name" required>
-                <input type="email" name="email" placeholder="Your Email" required>
-                <textarea name="message" placeholder="Your Message" rows="5" required></textarea>
-                <button type="submit">Send Message</button>
-            </form>
-        </div>
+    <section id="contact">
+        <h2>Contact Us</h2>
+        <form>
+            <input type="text" name="name" placeholder="Name" required>
+            <input type="email" name="email" placeholder="Email" required>
+            <textarea name="message" placeholder="Message" required></textarea>
+            <button type="submit">Send Message</button>
+        </form>
     </section>
 
     <!-- Footer -->
     <footer>
-        <div class="container footer-container">
-            <p>&copy; 2025 Ecoways Mechanized. All rights reserved.</p>
-            <p>Address: Nairobi, Kenya | Phone: +254 700 000 000 | Email: info@ecoways.co.ke</p>
-            <div class="social-links">
-                <a href="#">Facebook</a> | 
-                <a href="#">Instagram</a> | 
-                <a href="#">LinkedIn</a>
-            </div>
-        </div>
+        <p>© 2025 Ecoways Mechanized | Phone: +254 XXX XXX XXX | Email: info@ecowaysmechanized.co.ke</p>
     </footer>
 
-    <script src="script.js"></script>
+    <script src="ecoways.js"></script>
 </body>
 </html>
