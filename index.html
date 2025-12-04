@@ -15,7 +15,7 @@
 <meta http-equiv="Expires" content="0" />
 
 <!-- CSS with versioning -->
-<link rel="stylesheet" href="ecoways.css?v=1.0.1">
+<link rel="stylesheet" href="ecoways.css?v=1.0.2">
 
 <!-- Google Fonts -->
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
@@ -45,7 +45,6 @@
     <a href="https://surl.li/ebwvhk" class="btn-primary" target="_blank" rel="noopener noreferrer">Let's Chat</a>
   </div>
 </section>
-
 
 <!-- Services Section -->
 <section id="services" class="section">
@@ -98,5 +97,24 @@
 
 <!-- Footer -->
 <footer>
-  <p>© 2025 Ecoways Mechanized | +254 XXX XXX XXX | in
+  <p>© 2025 Ecoways Mechanized | +254 XXX XXX XXX | info@ecowaysmechanized.co.ke</p>
+</footer>
 
+<!-- JS with versioning -->
+<script src="ecoways.js?v=1.0.2"></script>
+<script>
+// Smooth scroll
+document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+  anchor.addEventListener('click', function(e){
+    e.preventDefault();
+    document.querySelector(this.getAttribute('href')).scrollIntoView({behavior:'smooth'});
+  });
+});
+
+// Hamburger toggle
+const hamburger = document.querySelector('.hamburger');
+const navLinks = document.querySelector('.nav-links');
+hamburger.addEventListener('click',()=>{navLinks.classList.toggle('active');});
+</script>
+</body>
+</html>
