@@ -1,0 +1,198 @@
+/* Reset & Base */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: #333;
+    line-height: 1.6;
+}
+
+/* Container */
+.container {
+    width: 90%;
+    max-width: 1200px;
+    margin: auto;
+}
+
+/* Header / Navbar */
+header {
+    background: #2f2f2f;
+    color: #fff;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 1000;
+}
+.header-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 0;
+}
+header .logo {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #a6e22e; /* eco-friendly green accent */
+}
+header nav ul {
+    list-style: none;
+    display: flex;
+    gap: 1.5rem;
+}
+header nav ul li a {
+    text-decoration: none;
+    color: #fff;
+    transition: color 0.3s;
+}
+header nav ul li a:hover {
+    color: #a6e22e;
+}
+
+/* Hero Section */
+.hero {
+    background: url('https://via.placeholder.com/1600x800') no-repeat center center/cover;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding-top: 70px; /* header offset */
+}
+.hero h1 {
+    font-size: 2.5rem;
+    color: #fff;
+    margin-bottom: 1rem;
+}
+.hero p {
+    font-size: 1.2rem;
+    color: #ddd;
+}
+
+/* About Section */
+.about {
+    padding: 4rem 0;
+    background: #f4f4f4;
+    text-align: center;
+}
+.about h2 {
+    color: #2f2f2f;
+    margin-bottom: 1rem;
+}
+.about p {
+    max-width: 800px;
+    margin: auto;
+}
+
+/* Services Section */
+.services {
+    padding: 4rem 0;
+    text-align: center;
+}
+.services h2 {
+    margin-bottom: 2rem;
+}
+.service-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 2rem;
+}
+.service-card {
+    background: #fff;
+    padding: 1rem;
+    border: 1px solid #ddd;
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+.service-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+}
+.service-card img {
+    width: 100%;
+    margin-bottom: 1rem;
+}
+
+/* Projects Section */
+.projects {
+    padding: 4rem 0;
+    background: #f4f4f4;
+    text-align: center;
+}
+.project-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1.5rem;
+}
+.project-grid img {
+    width: 100%;
+    transition: transform 0.3s;
+}
+.project-grid img:hover {
+    transform: scale(1.05);
+}
+
+/* Contact Section */
+.contact {
+    padding: 4rem 0;
+    text-align: center;
+}
+.contact form {
+    max-width: 600px;
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+.contact input, 
+.contact textarea {
+    padding: 0.75rem;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 1rem;
+}
+.contact button {
+    padding: 0.75rem;
+    border: none;
+    background: #2f2f2f;
+    color: #fff;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+.contact button:hover {
+    background: #a6e22e;
+    color: #000;
+}
+
+/* Footer */
+footer {
+    background: #2f2f2f;
+    color: #fff;
+    padding: 2rem 0;
+    text-align: center;
+}
+footer a {
+    color: #a6e22e;
+    text-decoration: none;
+    margin: 0 0.5rem;
+}
+footer a:hover {
+    text-decoration: underline;
+}
+
+/* Smooth scroll */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    header nav ul {
+        flex-direction: column;
+        gap: 1rem;
+    }
+    .hero h1 {
+        font-size: 2rem;
+    }
+}
