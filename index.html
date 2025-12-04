@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ecoways Mechanized | Kenya’s #1 Powder Coating & Industrial Restoration</title>
+<link rel="icon" href="assets/favicon.ico">
+<link rel="stylesheet" href="ecoways.css">
+</head>
+<body>
+
+<!-- Navbar -->
+<header>
+  <nav class="navbar">
+    <div class="logo">
+      <img src="assets/logo.png" alt="Ecoways Logo" class="logo-img">
+      Ecoways Mechanized
+    </div>
+    <ul class="nav-links">
+      <li><a href="#hero">Home</a></li>
+      <li><a href="#services">Services</a></li>
+      <li><a href="#projects">Projects</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+    <div class="hamburger"><span></span><span></span><span></span></div>
+  </nav>
+</header>
+
+<!-- Hero -->
+<section id="hero" class="hero-section" style="background-image:url('assets/images/hero-bg.jpg');">
+  <div class="overlay"></div>
+  <div class="hero-content">
+    <h1>Kenya’s #1 Powder Coating & Industrial Restoration Experts</h1>
+    <p>Durable, vibrant, and eco-friendly finishes for machinery, metalwork, and decorative items.</p>
+    <a href="https://surl.li/ebwvhk" class="btn-primary" target="_blank" rel="noopener noreferrer">Let's Chat</a>
+  </div>
+</section>
+
+<!-- Services -->
+<section id="services" class="section">
+  <h2>Our Services</h2>
+  <div class="services-grid">
+    <div class="service-card">
+      <h3>Machinery Refurbishment</h3>
+      <p>Restoring industrial machinery for top performance and durability.</p>
+    </div>
+    <div class="service-card">
+      <h3>Metalwork Restoration</h3>
+      <p>High-quality powder coating and finishing for industrial & decorative metalwork.</p>
+    </div>
+    <div class="service-card">
+      <h3>Powder Coating & Fabrication</h3>
+      <p>Eco-friendly, vibrant, long-lasting finishes for machinery and tools.</p>
+    </div>
+  </div>
+</section>
+
+<!-- Projects -->
+<section id="projects" class="section">
+  <h2>Our Projects</h2>
+  <div class="projects-grid">
+    <div class="project-card">
+      <img src="assets/images/project1.jpg" alt="Industrial Machinery Refurbished">
+      <div class="overlay"><p>Industrial Machinery Refurbished</p></div>
+    </div>
+    <div class="project-card">
+      <img src="assets/images/project2.jpg" alt="Metalwork Powder-Coated">
+      <div class="overlay"><p>Metalwork Powder-Coated</p></div>
+    </div>
+    <div class="project-card">
+      <img src="assets/images/project3.jpg" alt="Decorative Curios Restored">
+      <div class="overlay"><p>Decorative Curios Restored</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- Contact -->
+<section id="contact" class="section">
+  <h2>Contact Us</h2>
+  <div class="contact-info">
+    <p><strong>Phone:</strong> +254 722 501 975 | +254 734 848 386</p>
+    <p><strong>Email:</strong> ecowayspowdercoating@gmail.com | ecowaysmechanized@zohomail.com</p>
+    <p><strong>Follow us:</strong>
+      <a href="https://instagram.com/ecowayspowdercoating" target="_blank">Instagram</a> |
+      <a href="https://linkedin.com/company/ecoways-mechanized" target="_blank">LinkedIn</a> |
+      <a href="https://tiktok.com/@ecoways.powder.co" target="_blank">TikTok</a>
+    </p>
+  </div>
+  <form name="contact" method="POST" data-netlify="true">
+    <input type="text" name="name" placeholder="Name" required>
+    <input type="email" name="email" placeholder="Email" required>
+    <textarea name="message" placeholder="Message" required></textarea>
+    <button type="submit" class="btn-primary">Send Message</button>
+  </form>
+</section>
+
+<!-- WhatsApp Floating Button -->
+<a href="https://surl.li/ebwvhk" class="whatsapp-btn" target="_blank" rel="noopener noreferrer">Let's Chat</a>
+
+<footer>
+  <p>© 2025 Ecoways Mechanized | +254 722 501 975 | ecowayspowdercoating@gmail.com</p>
+</footer>
+
+<script src="ecoways.js"></script>
+<script>
+const hamburger = document.querySelector('.hamburger');
+const navLinks = document.querySelector('.nav-links');
+hamburger.addEventListener('click',()=>{navLinks.classList.toggle('active');});
+window.addEventListener('scroll', () => {
+  const scrolled = window.scrollY;
+  document.querySelector('.hero-section').style.backgroundPositionY = `${scrolled * 0.3}px`;
+  document.querySelectorAll('.service-card, .project-card').forEach(el => {
+    const top = el.getBoundingClientRect().top;
+    if(top < window.innerHeight - 100) el.classList.add('show');
+  });
+});
+</script>
+</body>
+</html>
