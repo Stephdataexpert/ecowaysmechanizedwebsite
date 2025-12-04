@@ -5,19 +5,11 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Ecoways Mechanized | Kenya’s #1 Powder Coating & Industrial Restoration</title>
 <link rel="icon" href="assets/favicon.ico">
-
-<!-- SEO meta description -->
 <meta name="description" content="Ecoways Mechanized is Kenya's leading powder coating and industrial restoration company. We specialize in machinery refurbishment, metalwork restoration, and eco-friendly finishes for lasting quality.">
-
-<!-- Cache-Control: always load latest -->
 <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
 <meta http-equiv="Pragma" content="no-cache" />
 <meta http-equiv="Expires" content="0" />
-
-<!-- CSS with versioning -->
-<link rel="stylesheet" href="ecoways.css?v=1.1.0">
-
-<!-- Google Fonts -->
+<link rel="stylesheet" href="ecoways.css?v=2.0.0">
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
 </head>
 <body>
@@ -107,13 +99,18 @@
   </form>
 </section>
 
+<!-- Floating WhatsApp Button -->
+<a href="https://surl.li/ebwvhk" class="whatsapp-btn" target="_blank" rel="noopener noreferrer">
+  Let's Chat
+</a>
+
 <!-- Footer -->
 <footer>
   <p>© 2025 Ecoways Mechanized | +254 722 501 975 | ecowayspowdercoating@gmail.com</p>
 </footer>
 
-<!-- JS with versioning -->
-<script src="ecoways.js?v=1.1.0"></script>
+<!-- JS -->
+<script src="ecoways.js?v=2.0.0"></script>
 <script>
 // Smooth scroll
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
@@ -127,6 +124,23 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
 const hamburger = document.querySelector('.hamburger');
 const navLinks = document.querySelector('.nav-links');
 hamburger.addEventListener('click',()=>{navLinks.classList.toggle('active');});
+
+// Hero fade-in and parallax
+window.addEventListener('load', () => {
+  document.querySelector('.hero-content').classList.add('show');
+});
+window.addEventListener('scroll', () => {
+  const scrolled = window.scrollY;
+  document.querySelector('.hero-section').style.backgroundPositionY = `${scrolled * 0.3}px`;
+
+  // Reveal on scroll
+  document.querySelectorAll('.service-card, .project-card').forEach(el => {
+    const elementTop = el.getBoundingClientRect().top;
+    if (elementTop < window.innerHeight - 100) {
+      el.classList.add('show');
+    }
+  });
+});
 </script>
 </body>
 </html>
