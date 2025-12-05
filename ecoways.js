@@ -1,48 +1,45 @@
-// small DOM helpers
-const $ = sel => document.querySelector(sel);
-const $$ = sel => Array.from(document.querySelectorAll(sel));
+// Hero stats counter animation (if any)
+document.addEventListener("DOMContentLoaded", () => {
+  // reveal on scroll
+  const revealElements = document.querySelectorAll(".card, .project-tile, .contact-card, .contact-form");
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) entry.target.classList.add("visible");
+    });
+  }, { threshold: 0.2 });
+  revealElements.forEach(el => observer.observe(el));
 
-// mobile nav toggle
-const navToggle = $('#navToggle');
-const siteNav = $('#siteNav');
+  // Footer year
+  const yearSpan = document.getElementById("year");
+  if (yearSpan) yearSpan.textContent = new Date().getFullYear();
+});
 
+// Project strip controls
+const strip = document.getElementById("projectStrip");
+const btnPrev = document.getElementById("stripPrev");
+const btnNext = document.getElementById("stripNext");
+
+if (strip && btnPrev && btnNext) {
+  const scrollAmount = 340; // approximate width of one tile + gap
+  btnNext.addEventListener("click", () => {
+    strip.scrollBy({ left: scrollAmount, behavior: "smooth" });
+  });
+  btnPrev.addEventListener("click", () => {
+    strip.scrollBy({ left: -scrollAmount, behavior: "smooth" });
+  });
+
+  // Optional: allow keyboard arrow keys when strip is focused
+  strip.addEventListener("keydown", e => {
+    if (e.key === "ArrowRight") strip.scrollBy({ left: scrollAmount, behavior: "smooth" });
+    if (e.key === "ArrowLeft") strip.scrollBy({ left: -scrollAmount, behavior: "smooth" });
+  });
+}
+
+// Hamburger toggle (mobile)
+const navToggle = document.getElementById("navToggle");
+const siteNav = document.getElementById("siteNav");
 if (navToggle && siteNav) {
-  navToggle.addEventListener('click', () => {
-    const expanded = navToggle.getAttribute('aria-expanded') === 'true';
-    navToggle.setAttribute('aria-expanded', (!expanded).toString());
-    siteNav.classList.toggle('open');
+  navToggle.addEventListener("click", () => {
+    siteNav.classList.toggle("nav--open");
   });
 }
-
-// add class when header should have background
-function handleHeaderScroll() {
-  const header = document.querySelector('.site-header');
-  if (!header) return;
-  if (window.scrollY > 40) header.classList.add('scrolled');
-  else header.classList.remove('scrolled');
-}
-window.addEventListener('scroll', handleHeaderScroll);
-window.addEventListener('load', handleHeaderScroll);
-
-// reveal on scroll
-function revealOnScroll() {
-  const items = [...$$('.card'), ...$$('.project-card'), ...$$('.contact-card'), ...$$('.contact-form')];
-  const winH = window.innerHeight;
-  items.forEach(el => {
-    if (el.getBoundingClientRect().top < winH - 80) el.classList.add('visible');
-  });
-}
-window.addEventListener('scroll', revealOnScroll);
-window.addEventListener('load', revealOnScroll);
-
-// set year
-document.addEventListener('DOMContentLoaded', () => {
-  const y = new Date().getFullYear();
-  const el = document.getElementById('year');
-  if (el) el.textContent = y;
-});
-
-// lazy images
-$$('img').forEach(img => {
-  if (!img.hasAttribute('loading')) img.setAttribute('loading','lazy');
-});
