@@ -1,14 +1,39 @@
-// small helper
+// small DOM helpers
 const $ = sel => document.querySelector(sel);
 const $$ = sel => Array.from(document.querySelectorAll(sel));
 
-// NAV toggle for mobile
-const navToggle = $('#navToggle') || $('#navToggle'); // if present
-const siteNav = $('#siteNav') || document.getElementById('siteNav');
+// mobile nav toggle
+const navToggle = $('#navToggle');
+const siteNav = $('#siteNav');
 
 if (navToggle && siteNav) {
-  navToggle.addEventListener('click', () => siteNav.classList.toggle('open'));
+  navToggle.addEventListener('click', () => {
+    const expanded = navToggle.getAttribute('aria-expanded') === 'true';
+    navToggle.setAttribute('aria-expanded', (!expanded).toString());
+    siteNav.classList.toggle('open');
+  });
 }
+
+// add class when header should have background
+function handleHeaderScroll() {
+  const header = document.querySelector('.site-header');
+  if (!header) return;
+  if (window.scrollY > 40) header.classList.add('scrolled');
+  else header.classList.remove('scrolled');
+}
+window.addEventListener('scroll', handleHeaderScroll);
+window.addEventListener('load', handleHeaderScroll);
+
+// reveal on scroll
+function revealOnScroll() {
+  const items = [...$$('.card'), ...$$('.project-card'), ...$$('.contact-card'), ...$$('.contact-form')];
+  const winH = window.innerHeight;
+  items.forEach(el => {
+    if (el.getBoundingClientRect().top < winH - 80) el.classList.add('visible');
+  });
+}
+window.addEventListener('scroll', revealOnScroll);
+window.addEventListener('load', revealOnScroll);
 
 // set year
 document.addEventListener('DOMContentLoaded', () => {
@@ -17,51 +42,7 @@ document.addEventListener('DOMContentLoaded', () => {
   if (el) el.textContent = y;
 });
 
-// HERO: fade-in and parallax
-const heroInner = document.querySelector('.hero-inner');
-window.addEventListener('load', () => {
-  if (heroInner) heroInner.classList.add('visible');
-});
-
-// Reveal on scroll for cards and tiles
-const revealEls = [...$$('.card'), ...$$('.project-tile'), ...$$('.contact-card'), ...$$('.contact-form')];
-function revealOnScroll() {
-  const winH = window.innerHeight;
-  revealEls.forEach(el => {
-    const top = el.getBoundingClientRect().top;
-    if (top < winH - 80) el.classList.add('visible');
-  });
-}
-window.addEventListener('scroll', revealOnScroll);
-window.addEventListener('load', revealOnScroll);
-
-// Parallax background movement
-window.addEventListener('scroll', () => {
-  const hero = document.querySelector('.hero');
-  if (!hero) return;
-  const sc = window.scrollY;
-  hero.style.backgroundPosition = `center ${Math.max(-20, sc * 0.15)}px`;
-});
-
-// PROJECT STRIP: horizontal navigation (buttons + keyboard)
-const strip = document.getElementById('projectStrip');
-const btnNext = document.getElementById('stripNext');
-const btnPrev = document.getElementById('stripPrev');
-if (btnNext && btnPrev && strip) {
-  btnNext.addEventListener('click', () => {
-    strip.scrollBy({left: 360, behavior: 'smooth'});
-  });
-  btnPrev.addEventListener('click', () => {
-    strip.scrollBy({left: -360, behavior: 'smooth'});
-  });
-  // keyboard navigation
-  strip.addEventListener('keydown', (e) => {
-    if (e.key === 'ArrowRight') strip.scrollBy({left:360, behavior:'smooth'});
-    if (e.key === 'ArrowLeft') strip.scrollBy({left:-360, behavior:'smooth'});
-  });
-}
-
-// make images lazy (simple)
+// lazy images
 $$('img').forEach(img => {
   if (!img.hasAttribute('loading')) img.setAttribute('loading','lazy');
 });
