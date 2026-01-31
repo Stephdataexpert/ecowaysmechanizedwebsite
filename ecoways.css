@@ -230,6 +230,14 @@ body{
   box-shadow:0 16px 40px rgba(198,162,77,.5);
 }
 
+/* REVEAL ANIMATIONS */
+.card,.project-tile,.contact-card,.contact-form{opacity:0;transform:translateY(28px);transition:opacity .6s ease, transform .6s ease}
+.visible{opacity:1;transform:translateY(0);}
+
+/* THANK YOU MESSAGE */
+#thankYouMsg{transition:opacity .5s ease, transform .5s ease;opacity:0;transform:translateY(12px)}
+#thankYouMsg.show{opacity:1;transform:translateY(0)}
+
 /* RESPONSIVE */
 @media(max-width:1000px){
   .cards{grid-template-columns:repeat(2,1fr)}
