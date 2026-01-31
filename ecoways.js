@@ -19,25 +19,42 @@ navToggle?.addEventListener('click', () => {
   }
 });
 
-// ===== Hero / reveal animations =====
+// ===== Reveal animations =====
 const observer = new IntersectionObserver((entries) => {
   entries.forEach(entry => {
     if(entry.isIntersecting){
       entry.target.classList.add('visible');
+      // Auto-play videos when in view
+      if(entry.target.tagName === 'VIDEO'){
+        entry.target.play();
+      }
+    } else {
+      if(entry.target.tagName === 'VIDEO'){
+        entry.target.pause();
+      }
     }
   });
-},{threshold:0.1});
+}, { threshold: 0.2 });
 
-document.querySelectorAll('.card, .project-tile, .contact-card, .contact-form').forEach(el => observer.observe(el));
+document.querySelectorAll('.card, .project-tile, .video-tile, .contact-card, .contact-form').forEach(el => observer.observe(el));
 
-// ===== Projects horizontal strip controls =====
-const strip = document.getElementById('projectStrip');
-document.getElementById('stripPrev')?.addEventListener('click', () => { strip.scrollBy({left:-350, behavior:'smooth'}); });
-document.getElementById('stripNext')?.addEventListener('click', () => { strip.scrollBy({left:350, behavior:'smooth'}); });
+// ===== Projects horizontal strip controls (images) =====
+const projectStrip = document.getElementById('projectStrip');
+document.getElementById('stripPrev')?.addEventListener('click', () => {
+  projectStrip.scrollBy({left:-350, behavior:'smooth'});
+});
+document.getElementById('stripNext')?.addEventListener('click', () => {
+  projectStrip.scrollBy({left:350, behavior:'smooth'});
+});
 
-const videoStrip = document.getElementById('videoProjectStrip');
-document.getElementById('videoStripPrev')?.addEventListener('click', () => { videoStrip.scrollBy({left:-350, behavior:'smooth'}); });
-document.getElementById('videoStripNext')?.addEventListener('click', () => { videoStrip.scrollBy({left:350, behavior:'smooth'}); });
+// ===== Videos horizontal strip controls =====
+const videoStrip = document.getElementById('videoStrip');
+document.getElementById('videoPrev')?.addEventListener('click', () => {
+  videoStrip.scrollBy({left:-350, behavior:'smooth'});
+});
+document.getElementById('videoNext')?.addEventListener('click', () => {
+  videoStrip.scrollBy({left:350, behavior:'smooth'});
+});
 
 // ===== Set current year in footer =====
 document.getElementById('year').textContent = new Date().getFullYear();
@@ -61,7 +78,7 @@ if(form){
   });
 }
 
-// ===== Smooth scroll for anchor links =====
+// ===== Optional: Smooth scroll for anchor links =====
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
   anchor.addEventListener('click', function(e){
     e.preventDefault();
